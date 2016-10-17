@@ -3,7 +3,7 @@ use Test::More tests => 22;
 use FindBin;
 use Data::Dumper;
 
-use_ok( 'PDBx::NoAtom' );
+use_ok( 'Bio::PDBx::NoAtom' );
 
 {
   my $pdb_xml_file            = $FindBin::Bin . "/1cuk-noatom.xml";
@@ -12,7 +12,7 @@ use_ok( 'PDBx::NoAtom' );
   # TODO:
   # my $pdb_xml_remote = 'http://www.rcsb.org/pdb/files/4hhb.xml?headerOnly=YES';
 
-  isa_ok( my $pdb = PDBx::NoAtom->new( file => $pdb_xml_file )->parse, 'PDBx::Schema::V40', 'new from file' );
+  isa_ok( my $pdb = Bio::PDBx::NoAtom->new( file => $pdb_xml_file )->parse, 'Bio::PDBx::Schema::V40', 'new from file' );
 
   is( $pdb->id, '1CUK', 'pdb id' );
 
@@ -24,7 +24,7 @@ use_ok( 'PDBx::NoAtom' );
       'primary_citation_title'
   );
 
-  isa_ok( my $pdb_gz = PDBx::NoAtom->new( file => $pdb_xml_gzipped_file )->parse, 'PDBx::Schema::V40', 'new (from gzip)' );
+  isa_ok( my $pdb_gz = Bio::PDBx::NoAtom->new( file => $pdb_xml_gzipped_file )->parse, 'Bio::PDBx::Schema::V40', 'new (from gzip)' );
 
   is( $pdb_gz->id, '1CUK', 'pdb id (from gzip)' );
 }
@@ -36,7 +36,7 @@ use_ok( 'PDBx::NoAtom' );
   # TODO:
   # my $pdb_xml_remote = 'http://www.rcsb.org/pdb/files/4hhb.xml?headerOnly=YES';
 
-  isa_ok( my $pdb = PDBx::NoAtom->new( file => $pdb_xml_file )->parse, 'PDBx::Schema::V42', 'new from file' );
+  isa_ok( my $pdb = Bio::PDBx::NoAtom->new( file => $pdb_xml_file )->parse, 'Bio::PDBx::Schema::V42', 'new from file' );
 
   is( $pdb->id, '5D4J', 'pdb id' );
 
@@ -48,9 +48,9 @@ use_ok( 'PDBx::NoAtom' );
       'primary_citation_title'
   );
 
-  isa_ok( my $pdb_gz = PDBx::NoAtom->new( file => $pdb_xml_gzipped_file )->parse, 'PDBx::Schema::V42', 'new (from gzip)' );
+  isa_ok( my $pdb_gz = Bio::PDBx::NoAtom->new( file => $pdb_xml_gzipped_file )->parse, 'Bio::PDBx::Schema::V42', 'new (from gzip)' );
 
-  is( $pdb_gz->id, '5D4J', 'pdb id (from gzip)' );  
+  is( $pdb_gz->id, '5D4J', 'pdb id (from gzip)' );
 }
 
 {
@@ -60,7 +60,7 @@ use_ok( 'PDBx::NoAtom' );
   # TODO:
   # my $pdb_xml_remote = 'http://www.rcsb.org/pdb/files/4hhb.xml?headerOnly=YES';
 
-  isa_ok( my $pdb = PDBx::NoAtom->new( file => $pdb_xml_file )->parse, 'PDBx::Schema::V32', 'new from file' );
+  isa_ok( my $pdb = Bio::PDBx::NoAtom->new( file => $pdb_xml_file )->parse, 'Bio::PDBx::Schema::V32', 'new from file' );
 
   is( $pdb->id, '2X37', 'pdb id' );
 
@@ -72,7 +72,7 @@ use_ok( 'PDBx::NoAtom' );
       'primary_citation_title'
   );
 
-  isa_ok( my $pdb_gz = PDBx::NoAtom->new( file => $pdb_xml_gzipped_file )->parse, 'PDBx::Schema::V32', 'new (from gzip)' );
+  isa_ok( my $pdb_gz = Bio::PDBx::NoAtom->new( file => $pdb_xml_gzipped_file )->parse, 'Bio::PDBx::Schema::V32', 'new (from gzip)' );
 
   is( $pdb_gz->id, '2X37', 'pdb id (from gzip)' );
 }

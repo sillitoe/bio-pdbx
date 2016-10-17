@@ -3,9 +3,9 @@ use warnings;
 use inc::Module::Install;
 use 5.008;
 
-name 'PDB-NoAtom';
+name 'Bio-PDB-NoAtom';
 perl_version '5.008';
-all_from 'lib/PDBx/NoAtom.pm';
+all_from 'lib/Bio/PDBx/NoAtom.pm';
 license 'perl';
 
 requires 'namespace::autoclean'         => '0.09';
@@ -28,5 +28,5 @@ tests_recursive();
 WriteAll();
 
 if ($Module::Install::AUTHOR) {
-        system('pod2text lib/PDBx/NoAtom.pm > README');
+  system('pod2text lib/Bio/PDBx/NoAtom.pm > README');
 }

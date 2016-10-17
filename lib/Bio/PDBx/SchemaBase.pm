@@ -1,4 +1,4 @@
-package PDBx::SchemaBase;
+package Bio::PDBx::SchemaBase;
 
 use XML::Rabbit::Root;
 
@@ -13,7 +13,7 @@ has_xpath_value 'method' => '//PDBx:exptlCategory/PDBx:exptl[1]/@method',
 ;
 
 map {
-  has_xpath_value 'primary_citation_' . $_ => q{//PDBx:citationCategory/PDBx:citation[@id='primary']/PDBx:} . $_,  
+  has_xpath_value 'primary_citation_' . $_ => q{//PDBx:citationCategory/PDBx:citation[@id='primary']/PDBx:} . $_,
   isa => 'Str',
 ;
 
@@ -37,7 +37,7 @@ has_xpath_value_list 'primary_citation_authors' => q{//PDBx:citation_authorCateg
   isa => 'ArrayRef',
 ;
 
-map { 
+map {
   has_xpath_value $_ => '//PDBx:' . $_, isa  => 'Str';
 } qw/
     gene_src_common_name
@@ -80,6 +80,3 @@ map {
     plasmid_details
     plasmid_name
 /;
-
-
-

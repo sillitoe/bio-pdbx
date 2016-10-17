@@ -3,9 +3,9 @@ NAME
 
 SYNOPSIS
         use PDBx::NoAtom;
-    
+
         my $xml_file = '1cuk-noatom.xml'; # or '1cuk-noatom.xml.gz'
-        
+
         my $pdb = PDBx::NoAtom->new( file => $xml_file )->parse;
 
         $pdb->id                        # '1CUK'
@@ -22,9 +22,11 @@ DESCRIPTION
     Currently this requires you to have a local copy of the PDB XML header
     files.
 
+    The entire dataset is available for download:
+
         ftp://ftp.wwpdb.org/pub/data/structures/all/XML-noatom
 
-    You can also access these files individually over HTTP via:
+    These files can be accessed individually via:
 
         http://www.rcsb.org/pdb/files/4hhb.xml?headerOnly=YES
 

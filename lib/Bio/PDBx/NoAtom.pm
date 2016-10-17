@@ -1,16 +1,16 @@
-package PDBx::NoAtom;
+package Bio::PDBx::NoAtom;
 
 use Moose;
 use Carp qw/ croak /;
 use MooseX::Types::Path::Class qw/ File /;
-use PDBx::Schema::V32;
-use PDBx::Schema::V40;
-use PDBx::Schema::V42;
+use Bio::PDBx::Schema::V32;
+use Bio::PDBx::Schema::V40;
+use Bio::PDBx::Schema::V42;
 use Try::Tiny;
 use IO::Uncompress::Gunzip qw/ $GunzipError /;
 use namespace::autoclean;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 has file => (
   is => 'ro',
@@ -41,17 +41,16 @@ sub _build_pdbx_schema_version {
 
 sub parse {
   my $self = shift;
-  my $schema_class = "PDBx::Schema::V" . $self->pdbx_schema_version;
+  my $schema_class = "Bio::PDBx::Schema::V" . $self->pdbx_schema_version;
   my $xml_file = $self->file;
   my $schema = try { $schema_class->new( file => "$xml_file" ) }
-  catch { 
+  catch {
     croak "Error: failed to create new `$schema_class` object: $_";
   };
   return $schema;
 }
 
 1;
-__END__
 
 =head1 NAME
 
@@ -60,9 +59,9 @@ PDBx::NoAtom - simple access to PDBx data (Protein Data Bank XML)
 =head1 SYNOPSIS
 
     use PDBx::NoAtom;
-    
+
     my $xml_file = '1cuk-noatom.xml'; # or '1cuk-noatom.xml.gz'
-        
+
     my $pdb = PDBx::NoAtom->new( file => $xml_file )->parse;
 
     $pdb->id                        # '1CUK'
@@ -79,10 +78,12 @@ PDBx::NoAtom - simple access to PDBx data (Protein Data Bank XML)
 =head1 DESCRIPTION
 
 Currently this requires you to have a local copy of the PDB XML header files.
-    
+
+The entire dataset is available for download:
+
     ftp://ftp.wwpdb.org/pub/data/structures/all/XML-noatom
 
-You can also access these files individually over HTTP via:
+These files can be accessed individually via:
 
     http://www.rcsb.org/pdb/files/4hhb.xml?headerOnly=YES
 
