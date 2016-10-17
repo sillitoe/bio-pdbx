@@ -1,0 +1,8 @@
+Revision history for PDBx-NoAtom
+
+0.02  Thu 14 Jul 12:28:09 BST 2016
+      * now works for schema: pdbx-v32, pdbx-v40 and pdbx-v42
+
+0.01  Tue Jan 26 12:19:49 2010
+      * Initial release.
+
