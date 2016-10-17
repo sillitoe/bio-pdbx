@@ -1,23 +1,24 @@
-# Bio-PDBx-NoAtom
+# Bio::PDBx::NoAtom
 
 Simple access to data in PDB XML header files
 
 ```
 use Bio::PDBx::NoAtom;
 
-my $xml_file = '1cuk-noatom.xml'; # or '1cuk-noatom.xml.gz'
+$xml_file = '1cuk-noatom.xml';
+$xml_file = '1cuk-noatom.xml.gz';  # handles compressed files
 
-my $pdb = Bio::PDBx::NoAtom->new( file => $xml_file )->parse;
+$pdb = Bio::PDBx::NoAtom->new( file => $xml_file )->parse;
 
-$pdb->id                        # '1CUK'
+$pdb->id                           # '1CUK'
 
-$pdb->method                    # 'X-RAY DIFFRACTION'
+$pdb->method                       # 'X-RAY DIFFRACTION'
 
-$pdb->host_org_genus            # 'Escherichia'
+$pdb->host_org_genus               # 'Escherichia'
 
-$pdb->primary_citation_title;   # 'Crystal structure of DNA recombination
-                                #  protein RuvA and a model for its
-                                #  binding to the Holliday junction.'
+$pdb->primary_citation_title;      # 'Crystal structure of DNA recombination
+                                   #  protein RuvA and a model for its
+                                   #  binding to the Holliday junction.'
 ```
 
 ## DESCRIPTION
