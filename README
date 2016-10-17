@@ -1,12 +1,12 @@
 NAME
-    PDBx::NoAtom - simple access to PDBx data (Protein Data Bank XML)
+    Bio::PDBx::NoAtom - simple access to data in PDB XML header files
 
 SYNOPSIS
-        use PDBx::NoAtom;
+        use Bio::PDBx::NoAtom;
 
         my $xml_file = '1cuk-noatom.xml'; # or '1cuk-noatom.xml.gz'
 
-        my $pdb = PDBx::NoAtom->new( file => $xml_file )->parse;
+        my $pdb = Bio::PDBx::NoAtom->new( file => $xml_file )->parse;
 
         $pdb->id                        # '1CUK'
 
@@ -91,16 +91,15 @@ BUGS AND LIMITATIONS
     mainly just the fields that I thought would be useful. Suggestions for
     further access welcome.
 
-    No bugs have been reported.
+    This code is available on GitHub
 
-    Please report any bugs or feature requests to "bug-pdbx@rt.cpan.org", or
-    through the web interface at <http://rt.cpan.org>.
+    <https://github.com/sillitoe/bio-pdbx-noatom>
 
 AUTHOR
     Ian Sillitoe "<isillitoe@cpan.org>"
 
 LICENCE AND COPYRIGHT
-    Copyright (c) 2010, Ian Sillitoe "<isillitoe@cpan.org>". All rights
+    Copyright (c) 2016, Ian Sillitoe "<isillitoe@cpan.org>". All rights
     reserved.
 
     This module is free software; you can redistribute it and/or modify it

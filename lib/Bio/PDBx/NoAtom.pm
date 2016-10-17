@@ -38,7 +38,6 @@ sub _build_pdbx_schema_version {
   croak "Error: failed to find expected PDBx namespace in xml file `$xml_file`";
 }
 
-
 sub parse {
   my $self = shift;
   my $schema_class = "Bio::PDBx::Schema::V" . $self->pdbx_schema_version;
@@ -54,15 +53,15 @@ sub parse {
 
 =head1 NAME
 
-PDBx::NoAtom - simple access to PDBx data (Protein Data Bank XML)
+Bio::PDBx::NoAtom - simple access to data in PDB XML header files
 
 =head1 SYNOPSIS
 
-    use PDBx::NoAtom;
+    use Bio::PDBx::NoAtom;
 
     my $xml_file = '1cuk-noatom.xml'; # or '1cuk-noatom.xml.gz'
 
-    my $pdb = PDBx::NoAtom->new( file => $xml_file )->parse;
+    my $pdb = Bio::PDBx::NoAtom->new( file => $xml_file )->parse;
 
     $pdb->id                        # '1CUK'
 
@@ -151,11 +150,10 @@ XML::Rabbit
 This does not currently encode all the information in the PDBx files, mainly just the fields that I thought
 would be useful. Suggestions for further access welcome.
 
-No bugs have been reported.
+This code is available on GitHub
 
-Please report any bugs or feature requests to
-C<bug-pdbx@rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org>.
+L<https://github.com/sillitoe/bio-pdbx-noatom>
+
 
 =head1 AUTHOR
 
@@ -163,7 +161,7 @@ Ian Sillitoe  C<< <isillitoe@cpan.org> >>
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2010, Ian Sillitoe C<< <isillitoe@cpan.org> >>. All rights reserved.
+Copyright (c) 2016, Ian Sillitoe C<< <isillitoe@cpan.org> >>. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
