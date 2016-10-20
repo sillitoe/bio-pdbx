@@ -32,16 +32,6 @@ $xml_file = '1cuk-noatom.xml.gz';  # handles compressed files
 $pdb = Bio::PDBx::NoAtom->new( file => $xml_file )->parse;
 ```
 
-## DESCRIPTION
-
-The entire dataset is available for download via FTP:
-
-    ftp://ftp.wwpdb.org/pub/data/structures/all/XML-noatom
-
-These files can be accessed individually via:
-
-    http://files.rcsb.org/view/${ID}-noatom.xml
-
 ## METHODS
 
 The following functions are all read only accessors returning a string.
@@ -97,6 +87,17 @@ $pdb->pdbx_host_org_vector_type
 $pdb->plasmid_details
 $pdb->plasmid_name
 ```
+
+## DATA
+
+The entire dataset of PDB XML files is available for download via FTP:
+
+    ftp://ftp.wwpdb.org/pub/data/structures/all/XML-noatom
+
+These files can be accessed individually via:
+
+    http://files.rcsb.org/view/${ID}-noatom.xml
+
 
 ## DEPENDENCIES
 
