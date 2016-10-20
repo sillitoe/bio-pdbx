@@ -1,6 +1,24 @@
-# Bio::PDBx::NoAtom
+# Bio::PDBx
 
-Simple access to data in PDB XML header files
+Simple access to data in PDB XML header files (local or remote)
+
+```
+use Bio::PDBx::WebService;
+
+my $ws = Bio::PDBx::WebService->new();
+
+my $pdb = $ws->get( id => '1cuk' );
+
+$pdb->id                           # '1CUK'
+$pdb->method                       # 'X-RAY DIFFRACTION'
+$pdb->host_org_genus               # 'Escherichia'
+$pdb->primary_citation_title;      # 'Crystal structure of DNA recombination
+                                   #  protein RuvA and a model for its
+                                   #  binding to the Holliday junction.'
+```
+
+If you already have XML-noatom files on your local file system then you can
+skip the webservice:
 
 ```
 use Bio::PDBx::NoAtom;
@@ -9,30 +27,17 @@ $xml_file = '1cuk-noatom.xml';
 $xml_file = '1cuk-noatom.xml.gz';  # handles compressed files
 
 $pdb = Bio::PDBx::NoAtom->new( file => $xml_file )->parse;
-
-$pdb->id                           # '1CUK'
-
-$pdb->method                       # 'X-RAY DIFFRACTION'
-
-$pdb->host_org_genus               # 'Escherichia'
-
-$pdb->primary_citation_title;      # 'Crystal structure of DNA recombination
-                                   #  protein RuvA and a model for its
-                                   #  binding to the Holliday junction.'
 ```
 
 ## DESCRIPTION
 
-Currently this requires you to have a local copy of the PDB XML header
-files.
-
-The entire dataset is available for download:
+The entire dataset is available for download via FTP:
 
     ftp://ftp.wwpdb.org/pub/data/structures/all/XML-noatom
 
 These files can be accessed individually via:
 
-    http://www.rcsb.org/pdb/files/4hhb.xml?headerOnly=YES
+    http://files.rcsb.org/view/${ID}-noatom.xml
 
 ## METHODS
 
