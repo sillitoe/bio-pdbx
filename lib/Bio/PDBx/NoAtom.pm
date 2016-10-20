@@ -10,7 +10,7 @@ use Try::Tiny;
 use IO::Uncompress::Gunzip qw/ $GunzipError /;
 use namespace::autoclean;
 
-our $VERSION = "0.03";
+our $VERSION = '0.03';
 
 has file => (
   is => 'ro',
