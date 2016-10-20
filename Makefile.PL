@@ -13,6 +13,7 @@ requires 'Module::Install';
 requires 'XML::Rabbit'                  => '0.3.0';
 requires 'Moose';
 requires 'MooseX::Types::Path::Class';
+requires 'MooseX::Params::Validate';
 requires 'Try::Tiny';
 requires 'XML::Rabbit::Root';
 
