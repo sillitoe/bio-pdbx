@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/sillitoe/bio-pdbx.svg?branch=master)](https://travis-ci.org/sillitoe/bio-pdbx)
+
+
 # Bio::PDBx
 
 Simple access to data in PDB XML header files (local or remote)
@@ -98,7 +101,7 @@ $pdb->plasmid_name
 ## DEPENDENCIES
 
 ```
-XML::Rabbit
+Moose, XML::Rabbit
 ```
 
 ## BUGS AND LIMITATIONS
