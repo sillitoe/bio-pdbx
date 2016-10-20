@@ -1,7 +1,8 @@
-use Test::More tests => 1;
+use Test::More tests => 2;
 
 BEGIN {
-use_ok( 'PDBx' );
+use_ok( 'Bio::PDBx::NoAtom' );
+use_ok( 'Bio::PDBx::WebService' );
 }
 
-diag( "Testing PDBx $PDBx::VERSION" );
+diag( "Testing Bio::PDBx $Bio::PDBx::NoAtom::VERSION" );
